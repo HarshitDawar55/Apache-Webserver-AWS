@@ -1,0 +1,32 @@
+---
+# tasks file for Apache-Webserver-AWS
+- name: Installing the latest version of the required softwares!
+  package:
+    name:
+      - php
+      - httpd
+    state: latest
+  register: Installation_Status
+
+- name: Copying webpage from the GitHub URL!
+  when: Installation_Status.rc == 0
+  block:
+    - name: Downloading the File!
+      get_url:
+        dest: "{{ Web_Doc_Root }}"
+        url: "https://raw.githubusercontent.com/HarshitDawar55/Ansible/master/index.php"
+      notify: Trigger Webserver
+  rescue:
+    - name: Creating a sample HTML Webpage!
+      copy:
+        dest: "{{  Web_Doc_Root  }}"
+        content: |
+          <pre> Welcome to the world of Harshit Dawar! </pre>
+      notify: Trigger Webserver
+
+- name: Starting services of Webserver & making them Permanent!
+  service:
+    name: httpd
+    state: started
+    enabled: True
+
