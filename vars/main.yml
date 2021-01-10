@@ -1,0 +1,3 @@
+---
+# vars file for Apache-Webserver-AWS
+Web_Doc_Root: "/var/www/html/"
