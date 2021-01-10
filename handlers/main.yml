@@ -1,0 +1,6 @@
+---
+# handlers file for Apache-Webserver-AWS
+- name: Trigger Webserver
+  service:
+    name: httpd
+    state: restarted
