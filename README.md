@@ -7,6 +7,10 @@ Requirements
 ------------
 
 * boto package(because EC2 Module is used).
+* ec2-scripts which will fetch the IP of the EC2 instances dynamically(if dynamic inventory of Ansible is used!).
+  * [ec2.py](https://github.com/HarshitDawar55/Ansible/blob/master/Dynamic-Inventory/ec2.py)
+  * [ec2.ini](https://github.com/HarshitDawar55/Ansible/blob/master/Dynamic-Inventory/ec2.in)
+* If the dynamic Inventory is used, hosts should be assigned using the tags given to the instances!    
 
 Role Variables
 --------------
@@ -30,9 +34,9 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+[MIT](https://github.com/HarshitDawar55/Apache-Webserver-AWS/blob/master/LICENSE)
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[Harshit Dawar](https://www.linkedin.com/in/harshitdawar)
